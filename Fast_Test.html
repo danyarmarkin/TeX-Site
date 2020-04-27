@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="cat.png" type="image/png">
 		<!-- CSS -->
 		<link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="test_form.css">
 		<link rel="stylesheet" href="buttons.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- MATHJAX -->
@@ -27,21 +28,22 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </head>
   <body leftmargin="10">
-    <h2> <b>Тест</b></h2>
+    <h2 class="text-center"> <b>Тест</b></h2>
     <form>
       <table>
         <hr>
         <tr>
-          <div class="">
-            Вопрос 1
-          </div>
-        </tr>
-        <tr>
-          <input class="form-control" type="text" size="50" onkeyup="UpdateMath(this.value)" onchange="UpdateMath(this.value)" placeholder="Ответ в TeX">
-        </tr>
-        <tr>
-          <div id="answer1" style="margin-top: 20 px">
-            Вы ввели: ${}$
+          <div class="question-div">
+            <div class="text-center">
+                 Вопрос 1
+            </div>
+            <div >
+                 Упростите $\sqrt{x^2}$
+            </div>
+            <input class="form-control" type="text" size="50" onkeyup="UpdateMath(this.value)" onchange="UpdateMath(this.value)" placeholder="Ответ в TeX">
+            <div id="answer1" style="margin-top: 20 px" class="button-sumbit">
+              Вы ввели: ${}$
+            </div>
           </div>
         </tr>
         <hr>
