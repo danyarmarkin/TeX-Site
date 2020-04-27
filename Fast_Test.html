@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Тест TeX</title>
+
+    <link rel="shortcut icon" href="cat.png" type="image/png">
+		<!-- CSS -->
+		<link rel="stylesheet" href="form.css">
+		<link rel="stylesheet" href="buttons.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- MATHJAX -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    showProcessingMessages: false,
+		    tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] }
+		  });
+		</script>
+		<script type="text/javascript" src="http://bandicoot.maths.adelaide.edu.au/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<!-- BOOTSTRAP -->
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </head>
+  <body leftmargin="10">
+    <p> <b>Тест</b></p>
+    <form class="" action="index.html" method="post">
+      <table>
+        <hr>
+        <tr>
+          <div class="">
+            Вопрос 1
+          </div>
+        </tr>
+        <tr>
+          <input type="text" size="50" onkeyup="UpdateMath(this.value)" onchange="UpdateMath(this.value)" placeholder="Ответ в TeX">
+        </tr>
+        <tr>
+          <div id="answer1">
+            Вы ввели: ${}$
+          </div>
+        </tr>
+        <hr>
+      </table>
+    </form>
+
+    <script src="testing.js"></script>
+  </body>
+</html>
