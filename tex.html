@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TeX Compile</title>
+		<link rel="shortcut icon" href="cat.png" type="image/png">
+		<!-- CSS -->
+		<link rel="stylesheet" href="form.css">
+		<link rel="stylesheet" href="buttons.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- MATHJAX -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    showProcessingMessages: false,
+		    tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] }
+		  });
+		</script>
+		<script type="text/javascript" src="http://bandicoot.maths.adelaide.edu.au/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<!-- BOOTSTRAP -->
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<script src="table.js"></script>
+		<script src="DropDownButtons.js"> </script>
+		<script>
+		  (function () {
+
+		    var QUEUE = MathJax.Hub.queue;  // shorthand for the queue
+		    var math = null;
+				            // the element jax for the math output.
+		    QUEUE.Push(function () {
+		      math = MathJax.Hub.getAllJax("buffer")[0];
+		    });
+		    window.UpdateMath = function (TeX) {
+		      QUEUE.Push(["Text",math,"\\displaystyle{"+TeX+"}"]);
+		    }
+		  })();
+		</script>
+		<div style="margin: 2px"> </div>
+		<!-- <form> -->
+			<table class="table">
+					<tr>
+						<th>Знаки и символы</th>
+					</tr>
+					<tr>
+						<td><button type="button" onclick="addEnter()" class="button-sumbit">Enter</button></td>
+						<td><button type="button" onclick="addNewFormula('\\begin{cases} \n && \\\\ \n && \n \\end{cases}')" class="button-sumbit">$\begin{cases}\\\dots\\\dots\\\end{cases}$</button></td>
+						<td><button type="button" onclick="addNewFormula('\\left[ \\begin{gathered} \n && \\\\ \n && \\\\ \n \\end{gathered} \\right.')" class="button-sumbit">$\left[ \begin{gathered} \dots \\ \dots \\ \end{gathered} \right.$</button></td>
+						<td> <button type="button" onclick="addNewFormula('\\sqrt{x}')" class="button-sumbit">$\sqrt{x}$</button> </td>
+						<td> <button type="button" onclick="addNewFormula('\\sqrt[a]{x}')" class="button-sumbit">$\sqrt[a]{x}$</button> </td>
+						<td> <button type="button" onclick="addNewFormula('\\dfrac{x}{y}')" class="button-sumbit">$\dfrac{x}{y}$</button> </td>
+						<td><button type="button" onclick="addNewFormula('^2')" class="button-sumbit">$x^2$</button></td>
+						<!-- <td><button type="button" onclick="addNewFormula('^{a}')" class="button-sumbit">$x^a$</button></td> -->
+						<td><button type="button" onclick="addNewFormula('_{a}')" class="button-sumbit">$x_{a}$</button></td>
+						<td><button type="button" onclick="addNewFormula('\\left( \\right)')" class="button-sumbit">$(\dots)$</button></td>
+						<td><button type="button" onclick="addNewFormula('\\left| \\right|')" class="button-sumbit">$|\dots|$</button></td>
+						<td><button type="button" onclick="addNewFormula('\\partial')" class="button-sumbit">$\partial$</button></td>
+					</tr>
+					<tr>
+						<td>
+							<div class="dropdown">
+  							<button onclick="DropdownSymbols()" class="dropbtn">Знаки</button>
+  							<div id="DropdownSymbolsID" class="dropdown-content">
+    							<button type="button" onclick="addNewFormula('=')" class="button-sumbit">$=$</button>
+									<button type="button" onclick="addNewFormula('\\approx')" class="button-sumbit">$\approx$</button>
+									<button type="button" onclick="addNewFormula('\\equiv')" class="button-sumbit">$\equiv$</button>
+									<button type="button" onclick="addNewFormula('\\sim')" class="button-sumbit">$\sim$</button>
+									<button type="button" onclick="addNewFormula('\\%')" class="button-sumbit">$\%$</button>
+    							<button type="button" onclick="addNewFormula('+')" class="button-sumbit">$+$</button>
+    							<button type="button" onclick="addNewFormula('-')" class="button-sumbit">$-$</button>
+									<button type="button" onclick="addNewFormula('\\times')" class="button-sumbit">$\times$</button>
+									<button type="button" onclick="addNewFormula('\\cdot')" class="button-sumbit">$\cdot$</button>
+									<button type="button" onclick="addNewFormula('\\div')" class="button-sumbit">$\div$</button>
+									<button type="button" onclick="addNewFormula('\\not=')" class="button-sumbit">$\not=$</button>
+									<button type="button" onclick="addNewFormula('>')" class="button-sumbit">$>$</button>
+									<button type="button" onclick="addNewFormula('<')" class="button-sumbit">$<$</button>
+									<button type="button" onclick="addNewFormula('\\leqslant')" class="button-sumbit">$\leqslant$</button>
+									<button type="button" onclick="addNewFormula('\\geqslant')" class="button-sumbit">$\geqslant$</button>
+									<button type="button" onclick="addNewFormula('\\triangle')" class="button-sumbit">$\triangle$</button>
+									<button type="button" onclick="addNewFormula('^\\circ')" class="button-sumbit">$^\circ$</button>
+									<button type="button" onclick="addNewFormula('\\pm')" class="button-sumbit">$\pm$</button>
+									<button type="button" onclick="addNewFormula('\\mp')" class="button-sumbit">$\mp$</button>
+									<button type="button" onclick="addNewFormula('\\vee')" class="button-sumbit">$\vee$</button>
+									<button type="button" onclick="addNewFormula('\\wedge')" class="button-sumbit">$\wedge$</button>
+									<button type="button" onclick="addNewFormula('\\ll')" class="button-sumbit">$\ll$</button>
+									<button type="button" onclick="addNewFormula('\\gg')" class="button-sumbit">$\gg$</button>
+									<button type="button" onclick="addNewFormula('\\parallel')" class="button-sumbit">$\parallel$</button>
+									<button type="button" onclick="addNewFormula('\\perp')" class="button-sumbit">$\perp$</button>
+									<button type="button" onclick="addNewFormula('\\angle')" class="button-sumbit">$\angle$</button>
+									<button type="button" onclick="addNewFormula('\\ast')" class="button-sumbit">$\ast$</button>
+									<button type="button" onclick="addNewFormula('\\forall')" class="button-sumbit">$\forall$</button>
+									<button type="button" onclick="addNewFormula('\\aleph')" class="button-sumbit">$\aleph$</button>
+  							</div>
+							</div>
+						</td>
+						<td>
+							<div class="dropdown">
+  							<button onclick="DropdownBigSymbols()" class="dropbtn" >Большие знаки</button>
+  							<div id="DropdownBigSymbolsID" class="dropdown-content" style="min-width:100px">
+    							<button type="button" onclick="addNewFormula('\\sum')" class="button-sumbit">$\sum$</button>
+									<button type="button" onclick="addNewFormula('\\int')" class="button-sumbit">$\int$</button>
+									<button type="button" onclick="addNewFormula('\\oint')" class="button-sumbit">$\oint$</button>
+  							</div>
+							</div>
+						</td>
+						<td>
+							<div class="dropdown">
+  							<button onclick="DropdownGreece()" class="dropbtn">Греческие буквы</button>
+  							<div id="DropdownGreeceID" class="dropdown-content">
+    							<button type="button" onclick="addNewFormula('\\alpha')" class="button-sumbit">$\alpha$</button>
+    							<button type="button" onclick="addNewFormula('\\beta')" class="button-sumbit">$\beta$</button>
+    							<button type="button" onclick="addNewFormula('\\gamma')" class="button-sumbit">$\gamma$</button>
+									<button type="button" onclick="addNewFormula('\\delta')" class="button-sumbit">$\delta$</button>
+									<button type="button" onclick="addNewFormula('\\epsilon')" class="button-sumbit">$\epsilon$</button>
+    							<button type="button" onclick="addNewFormula('\\zeta')" class="button-sumbit">$\zeta$</button>
+    							<button type="button" onclick="addNewFormula('\\eta')" class="button-sumbit">$\eta$</button>
+									<button type="button" onclick="addNewFormula('\\theta')" class="button-sumbit">$\theta$</button>
+									<button type="button" onclick="addNewFormula('\\iota')" class="button-sumbit">$\iota$</button>
+    							<button type="button" onclick="addNewFormula('\\kappa')" class="button-sumbit">$\kappa$</button>
+    							<button type="button" onclick="addNewFormula('\\lambda')" class="button-sumbit">$\lambda$</button>
+									<button type="button" onclick="addNewFormula('\\mu')" class="button-sumbit">$\mu$</button>
+									<button type="button" onclick="addNewFormula('\\nu')" class="button-sumbit">$\nu$</button>
+    							<button type="button" onclick="addNewFormula('\\xi')" class="button-sumbit">$\xi$</button>
+    							<button type="button" onclick="addNewFormula('\\pi')" class="button-sumbit">$\pi$</button>
+									<button type="button" onclick="addNewFormula('\\rho')" class="button-sumbit">$\rho$</button>
+									<button type="button" onclick="addNewFormula('\\sigma')" class="button-sumbit">$\sigma$</button>
+    							<button type="button" onclick="addNewFormula('\\tau')" class="button-sumbit">$\tau$</button>
+    							<button type="button" onclick="addNewFormula('\\upsilon')" class="button-sumbit">$\upsilon$</button>
+									<button type="button" onclick="addNewFormula('\\phi')" class="button-sumbit">$\phi$</button>
+									<button type="button" onclick="addNewFormula('\\chi')" class="button-sumbit">$\chi$</button>
+    							<button type="button" onclick="addNewFormula('\\psi')" class="button-sumbit">$\psi$</button>
+    							<button type="button" onclick="addNewFormula('\\omega')" class="button-sumbit">$\omega$</button>
+  							</div>
+							</div>
+						</td>
+						<td>
+							<div class="dropdown">
+  							<button onclick="DropdownArrows()" class="dropbtn">Стрелки</button>
+  							<div id="DropdownArrowsID" class="dropdown-content">
+    							<button type="button" onclick="addNewFormula('\\to')" class="button-sumbit">$\to$</button>
+									<button type="button" onclick="addNewFormula('\\gets')" class="button-sumbit">$\gets$</button>
+									<button type="button" onclick="addNewFormula('\\leadsto')" class="button-sumbit">$\leadsto$</button>
+									<button type="button" onclick="addNewFormula('\\leftrightarrow')" class="button-sumbit">$\leftrightarrow$</button>
+									<button type="button" onclick="addNewFormula('\\Leftarrow')" class="button-sumbit">$\Leftarrow$</button>
+									<button type="button" onclick="addNewFormula('\\Rightarrow')" class="button-sumbit">$\Rightarrow$</button>
+									<button type="button" onclick="addNewFormula('\\Leftrightarrow')" class="button-sumbit">$\Leftrightarrow$</button>
+									<button type="button" onclick="addNewFormula('\\Uparrow')" class="button-sumbit">$\Uparrow$</button>
+									<button type="button" onclick="addNewFormula('\\Downarrow')" class="button-sumbit">$\Downarrow$</button>
+									<button type="button" onclick="addNewFormula('\\Updownarrow')" class="button-sumbit">$\Updownarrow$</button>
+									<button type="button" onclick="addNewFormula('\\mapsto')" class="button-sumbit">$\mapsto$</button>
+									<button type="button" onclick="addNewFormula('\\uparrow')" class="button-sumbit">$\uparrow$</button>
+									<button type="button" onclick="addNewFormula('\\downarrow')" class="button-sumbit">$\downarrow$</button>
+									<button type="button" onclick="addNewFormula('\\Lleftarrow')" class="button-sumbit">$\Lleftarrow$</button>
+									<button type="button" onclick="addNewFormula('\\Rrightarrow ')" class="button-sumbit">$\Rrightarrow $</button>
+									<button type="button" onclick="addNewFormula('\\not\\to')" class="button-sumbit">$\not\to$</button>
+									<button type="button" onclick="addNewFormula('\\not\\gets')" class="button-sumbit">$\not\gets$</button>
+									<button type="button" onclick="addNewFormula('\\nleftrightarrow')" class="button-sumbit">$\nleftrightarrow$</button>
+									<button type="button" onclick="addNewFormula('\\nLeftarrow')" class="button-sumbit">$\nLeftarrow$</button>
+									<button type="button" onclick="addNewFormula('\\nRightarrow')" class="button-sumbit">$\nRightarrow$</button>
+									<button type="button" onclick="addNewFormula('\\nLeftrightarrow')" class="button-sumbit">$\nLeftrightarrow$</button>
+  							</div>
+							</div>
+						</td>
+						<td>
+							<div class="dropdown">
+  							<button onclick="DropdownPlurality()" class="dropbtn">Множества и знаки при них</button>
+  							<div id="DropdownPluralityID" class="dropdown-content">
+									<button type="button" onclick="addNewFormula('\\mathbb{P}')" class="button-sumbit">$\mathbb{P}$</button>
+									<button type="button" onclick="addNewFormula('\\mathbb{N}')" class="button-sumbit">$\mathbb{N}$</button>
+									<button type="button" onclick="addNewFormula('\\mathbb{Z}')" class="button-sumbit">$\mathbb{Z}$</button>
+									<button type="button" onclick="addNewFormula('\\mathbb{I}')" class="button-sumbit">$\mathbb{I}$</button>
+									<button type="button" onclick="addNewFormula('\\mathbb{Q}')" class="button-sumbit">$\mathbb{Q}$</button>
+									<button type="button" onclick="addNewFormula('\\mathbb{R}')" class="button-sumbit">$\mathbb{R}$</button>
+									<button type="button" onclick="addNewFormula('\\mathbb{C}')" class="button-sumbit">$\mathbb{C}$</button>
+
+									<button type="button" onclick="addNewFormula('\\infty')" class="button-sumbit">$\infty$</button>
+									<button type="button" onclick="addNewFormula('\\varnothing')" class="button-sumbit">$\varnothing$</button>
+									<button type="button" onclick="addNewFormula('\\forall')" class="button-sumbit">$\forall$</button>
+									<button type="button" onclick="addNewFormula('\\exists')" class="button-sumbit">$\exists$</button>
+
+									<button type="button" onclick="addNewFormula('\\cap')" class="button-sumbit">$\cap$</button>
+									<button type="button" onclick="addNewFormula('\\cup')" class="button-sumbit">$\cup$</button>
+									<button type="button" onclick="addNewFormula('\\in')" class="button-sumbit">$\in$</button>
+									<button type="button" onclick="addNewFormula('\\ni')" class="button-sumbit">$\ni$</button>
+									<button type="button" onclick="addNewFormula('\\notin')" class="button-sumbit">$\notin$</button>
+									<button type="button" onclick="addNewFormula('\\subset')" class="button-sumbit">$\subset$</button>
+									<button type="button" onclick="addNewFormula('\\not\\subset')" class="button-sumbit">$\not\subset$</button>
+  							</div>
+							</div>
+						</td>
+						<td>
+							<div class="dropdown" >
+								<button onclick="DropdownExample()" class="dropbtn" >Примеры кода</button>
+								<div id="DropdownExampleID" class="dropdown-content" style="min-width:100px">
+									<button type="button" onclick="codeExample(1)" class="button-sumbit">Уравнение</button>
+									<button type="button" onclick="codeExample(6)" class="button-sumbit">Система</button>
+									<button type="button" onclick="codeExample(2)" class="button-sumbit">Сумма</button>
+									<button type="button" onclick="codeExample(3)" class="button-sumbit">Формула</button>
+									<button type="button" onclick="codeExample(4)" class="button-sumbit">Неравенство</button>
+									<button type="button" onclick="codeExample(5)" class="button-sumbit">Факториал</button>
+								</div>
+							</div>
+						</td>
+					</tr>
+			</table>
+
+			<!-- <button type="button" onclick="codeExample()" class="button">Пример кода</button> -->
+			<button type="button" onclick="Clear()" class="button">Очистить поле</button>
+
+		<!-- </form> -->
+
+		<p class = "left" >Код TeX</p>
+		<table>
+			<tr>
+				<td>
+					<textarea rows="8" cols="72" id="MathInput" onkeyup="UpdateMath(this.value)" onchange="UpdateMath(this.value)" class="left"></textarea>
+				</td>
+				<td>
+					<canvas id="canvas" width="300" height="300"></canvas>
+				</td>
+			</tr>
+		</table>
+
+		<div class="left" id="buffer">
+			Вы ввели: ${ }$
+		</div>
+		<div class="space">
+
+		</div>
+	</body>
+</html>

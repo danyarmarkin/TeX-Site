@@ -1,0 +1,46 @@
+h1{
+	width: 260px;
+	font-family: "Arial", sans-serif;
+	font-size:36px;
+	line-height:36px;
+}.text{
+	margin-bottom: 190px;
+}.button {
+    background-color: #8d26dd;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+		margin-left: 20;
+    cursor: pointer;
+}.type{
+	color:white;
+
+}.button-sumbit{
+	background-color: white;
+	color: black;
+	border: 2px solid #4CAF50;
+	padding: 7px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	margin:4px;
+}.s11 {
+  background-position: center bottom;
+  color: #1E3A52;
+  padding-bottom: 3px;
+  padding: 15px 32px;
+  border: 3px solid green;
+  border-radius: 25px;
+  font-size: 16px;
+}
+.s11:hover {
+  color: #FE5568;
+}.left{
+	margin-left: 20px;
+}.space{
+	margin: 100px;
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<title>MathJax Dynamic Math Test Page</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] }
+  });
+</script>
+<script type="text/javascript" src="http://bandicoot.maths.adelaide.edu.au/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</head>
+<body>
+
+<script>
+  (function () {
+    var QUEUE = MathJax.Hub.queue;  // shorthand for the queue
+    var math = null;                // the element jax for the math output.
+    QUEUE.Push(function () {
+      math = MathJax.Hub.getAllJax("MathOutput")[0];
+    });
+    window.UpdateMath = function (TeX) {
+      QUEUE.Push(["Text",math,"\\displaystyle{"+TeX+"}"]);
+    }
+  })();
+</script>
+
+Type some TeX code:
+<input id="MathInput" size="50" onchange="UpdateMath(this.value)" />
+<p>
+
+<div id="MathOutput">
+You typed: ${ }$
+</div>
+
+</body>
+</html>
